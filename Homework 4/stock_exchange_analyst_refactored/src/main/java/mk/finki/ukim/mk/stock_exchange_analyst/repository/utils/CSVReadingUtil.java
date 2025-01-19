@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+// A CSV reading utility singleton class utilizing the Apache Commons API
 public class CSVReadingUtil {
 
     public static List<List<String>> readCSV(String company) throws IOException {

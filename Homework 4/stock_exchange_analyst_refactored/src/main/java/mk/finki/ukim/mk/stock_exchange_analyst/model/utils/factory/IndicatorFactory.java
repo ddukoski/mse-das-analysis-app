@@ -6,6 +6,7 @@ import mk.finki.ukim.mk.stock_exchange_analyst.model.Oscillator;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+// A singleton utility class that serves as a Factory for Indicators (Oscillators or MovingAverages, as needed)
 public class IndicatorFactory {
 
     public static Oscillator createOscillator(String name, Double value, Function<Double, String> indicator) {

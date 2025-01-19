@@ -25,6 +25,8 @@ public class SentimentRepository {
         companies = new HashMap<>();
     }
 
+    // An update method that adjusts the company sentiment analyses at runtime, on application start and at 00:00 every day,
+    // as scheduled by DataFetcher
     public void update() throws IOException {
         List<List<String>> companyData = CSVReadingUtil.readCSV(predPath);
         List<List<String>> sentimentStrs = companyData.subList(1, companyData.size());
@@ -32,6 +34,7 @@ public class SentimentRepository {
         constructSentimentTable(sentimentStrs);
     }
 
+    // Fetch the full company names (no codes, due to clarity needed for the task)
     public List<String> getFullCompanyNames() {
         return companies.keySet().stream().sorted().collect(Collectors.toList());
     }
@@ -40,6 +43,8 @@ public class SentimentRepository {
         return companies.get(companyName);
     }
 
+    /* Constructs a sentiment table (sets the companies hash table to a state where it is filled with fundamental analyses)
+       according to the given analysis done using the python script */
     private void constructSentimentTable(List<List<String>> ls) {
 
         for (List<String> row : ls) {

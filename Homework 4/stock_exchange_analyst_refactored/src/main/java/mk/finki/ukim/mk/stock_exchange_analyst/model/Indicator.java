@@ -3,8 +3,9 @@ package mk.finki.ukim.mk.stock_exchange_analyst.model;
 import lombok.Data;
 import mk.finki.ukim.mk.stock_exchange_analyst.model.utils.FormatConvenienceUtil;
 
+// Template class for an Indicator, any class that is an Indicator must specify how to indicate (take action -> Buy / Sell)
 @Data
-public abstract class Indicator { // Template class
+public abstract class Indicator {
 
     protected final String name;
     protected final Double value;

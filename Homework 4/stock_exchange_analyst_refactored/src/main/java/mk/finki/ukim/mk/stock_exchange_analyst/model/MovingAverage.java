@@ -2,7 +2,9 @@ package mk.finki.ukim.mk.stock_exchange_analyst.model;
 
 import java.util.function.BiFunction;
 
-public class MovingAverage extends Indicator{
+// A type of indicator class (Moving Average)
+public class MovingAverage extends Indicator {
+
     private Double                             price;
     private BiFunction<Double, Double, String> indicator;
 

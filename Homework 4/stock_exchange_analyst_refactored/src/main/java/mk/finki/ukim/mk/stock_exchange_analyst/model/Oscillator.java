@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.util.function.Function;
 
+// A type of indicator class (Oscillator)
 public class Oscillator extends Indicator {
     private Function<Double, String> indicator;
 

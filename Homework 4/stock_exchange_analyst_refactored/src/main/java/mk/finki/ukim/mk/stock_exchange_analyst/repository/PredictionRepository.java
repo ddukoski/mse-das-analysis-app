@@ -30,6 +30,8 @@ public class PredictionRepository {
         companies = new HashMap<>();
     }
 
+    // An update method that adjusts the company predictions at runtime, on application start and at 00:00 every day,
+    // as scheduled by DataFetcher
     @PostConstruct
     public void update() throws IOException {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(predPath))) {
@@ -55,12 +57,13 @@ public class PredictionRepository {
         return companies.get(company);
     }
 
+    // Accepts a list of predictions
     private List<Prediction> createPredictions(List<String> ls) {
         LocalDate today = LocalDate.now();
-        List<Prediction> retval = new ArrayList<>();
+        List<Prediction> predictionsReturn = new ArrayList<>();
         for (int i = 1; i <= ls.size(); i++) {
-            retval.add(new Prediction(Double.parseDouble(ls.get(i-1)), today.plusDays(i)));
+            predictionsReturn.add(new Prediction(Double.parseDouble(ls.get(i-1)), today.plusDays(i)));
         }
-        return retval;
+        return predictionsReturn;
     }
 }

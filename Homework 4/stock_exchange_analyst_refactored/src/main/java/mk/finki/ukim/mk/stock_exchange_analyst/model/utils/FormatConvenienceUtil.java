@@ -7,6 +7,7 @@ import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+// A utility that specifies under the agreed-upon formats in the SRS
 @Data
 public class FormatConvenienceUtil {
 

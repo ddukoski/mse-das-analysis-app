@@ -30,6 +30,8 @@ public class StockRepository {
 
     private final Map<String, List<Observation>> companies = new HashMap<>();
 
+    // An update method that adjusts the company observations (stock data) at runtime, on application start and at 00:00 every day,
+    // as scheduled by DataFetcher
     @PostConstruct
     public void update() throws IOException {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(dbPath))) {
@@ -50,6 +52,7 @@ public class StockRepository {
         }
     }
 
+    // Fetch the company records in the specified from-to date range
     public List<Observation> getRecordsFromTo(String company, LocalDate from, LocalDate to) {
         return companies.get(company)
                 .stream()

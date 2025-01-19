@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 import java.util.List;
 
+// An API that fetches company (Observation) stock data in a given date range (opt.) and returns it in a JSON format
 @RestController
 @RequestMapping("/api/stockdata")
 public class CompanyDataController {
@@ -29,7 +30,7 @@ public class CompanyDataController {
             @RequestParam (required = false)
             @DateTimeFormat(pattern = "yyyy-MM-dd")
             LocalDate dateFrom,
-            @RequestParam
+            @RequestParam (required = false)
             @DateTimeFormat(pattern = "yyyy-MM-dd")
             LocalDate dateTo
     ) {

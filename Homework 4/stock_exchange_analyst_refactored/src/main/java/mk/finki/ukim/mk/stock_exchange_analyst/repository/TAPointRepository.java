@@ -27,6 +27,8 @@ public class TAPointRepository {
         companies = new HashMap<>();
     }
 
+    // An update method that adjusts the techincal analyses at runtime, on application start and at 00:00 every day,
+    // as scheduled by DataFetcher
     @PostConstruct
     public void update() throws IOException {
         try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(taPath))) {
@@ -49,6 +51,7 @@ public class TAPointRepository {
         }
     }
 
+    // Fetch the latest technical analysis (according to the latest DATE)
     public Optional<TAPoint> latest(String company) {
         if (!companies.containsKey(company)) return Optional.empty();
 

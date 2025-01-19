@@ -6,6 +6,8 @@ import mk.finki.ukim.mk.stock_exchange_analyst.model.utils.FormatConvenienceUtil
 
 import java.time.LocalDate;
 
+/* A prediction point using latest company reports, indicating whether to buy or sell based on sentiment analysis
+  (using the transformers library in python) of said reports */
 @Data
 @AllArgsConstructor
 public class Sentiment {

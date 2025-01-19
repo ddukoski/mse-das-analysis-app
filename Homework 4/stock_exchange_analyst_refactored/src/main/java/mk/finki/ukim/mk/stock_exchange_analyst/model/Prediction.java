@@ -6,6 +6,8 @@ import mk.finki.ukim.mk.stock_exchange_analyst.model.utils.FormatConvenienceUtil
 
 import java.time.LocalDate;
 
+// A forecast point using an LSTM Neural Network (re-trained each day -> 00:00, on Observation data)
+// Info: There exist 5 of these per company
 @Data
 @AllArgsConstructor
 public class Prediction {

@@ -40,6 +40,8 @@ public class DataFetcher {
         this.refreshService = refreshService;
     }
 
+    /* Runs all of the needed analyses as processes (sequentially due to dependencies), and call update for each repository
+       at runtime. This is done every day at 00:00, as scheduled by the cron string. */
     @Scheduled(cron = "0 0 0 * * *") // Update the database at midnight
     @PostConstruct
     public void updateDatabase() throws ParseException, IOException {
@@ -50,6 +52,7 @@ public class DataFetcher {
         refreshService.refreshDatabase();
     }
 
+    // Executes and logs a python script. Error and Input streams are logged in parallel to ensure process termination
     private void executeScript(String taskName, String scriptPath) {
         String[] command = {"python", scriptPath};
         ProcessBuilder pb = new ProcessBuilder(command);
@@ -73,6 +76,7 @@ public class DataFetcher {
         }
     }
 
+    // Logs the given stream to our standard output
     private void logProcessOutput(InputStream inputStream, String stream) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;

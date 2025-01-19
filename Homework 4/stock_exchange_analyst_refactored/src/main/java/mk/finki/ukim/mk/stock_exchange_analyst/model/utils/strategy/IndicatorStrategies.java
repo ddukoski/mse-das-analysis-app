@@ -3,6 +3,7 @@ package mk.finki.ukim.mk.stock_exchange_analyst.model.utils.strategy;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+// A singleton utility class that implements multiple strategies to use in Indicators as desired
 public class IndicatorStrategies {
 
     public static Function<Double, String> rsi() {

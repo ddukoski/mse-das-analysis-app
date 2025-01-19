@@ -6,6 +6,8 @@ import mk.finki.ukim.mk.stock_exchange_analyst.model.utils.FormatConvenienceUtil
 import java.time.LocalDate;
 import java.util.Map;
 
+
+// Class for a stock data point
 @Data
 public class Observation implements Comparable<Observation> {
 

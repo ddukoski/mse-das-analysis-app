@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+// A technical analysis point, contains multiple indicators, based on a price and date
 @Data
 @AllArgsConstructor
 public class TAPoint {
@@ -20,6 +21,7 @@ public class TAPoint {
 
     private static final double THRESHOLD = 0.01;
 
+    // Returns all available oscillators in the indicators field
     public List<Oscillator> oscillators() {
         return List.of(
                 IndicatorFactory.createOscillator(
@@ -43,6 +45,7 @@ public class TAPoint {
         );
     }
 
+    // Returns all available moving averages in the indicators field
     public List<MovingAverage> MAs() {
 
         return List.of(
